@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poetry Viz</title>
+    <!--font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,700;1,400;1,700&family=Stalemate&display=swap" rel="stylesheet">
+    <!--boostrap 'n libraries-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--D3 library-->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <!--styles-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home"><span>Home</span><i class="fa fa-circle"></i></a>
+        <a href="#history"><span>History</span><i class="fa fa-circle"></i></a>
+        <a href="#nlp"><span>NLP & Sentiment</span><i class="fa fa-circle"></i></a>
+        <a href="#development"><span>Development</span><i class="fa fa-circle"></i></a>
+        <a href="#context"><span>Context</span><i class="fa fa-circle"></i></a>
+        <a href="#sentiment"><span>Sentiment</span><i class="fa fa-circle"></i></a>
+        <a href="#analyzer"><span>Analyzer</span><i class="fa fa-circle"></i></a>
+    </nav>
+
+    <section id="home">
+        <img id="title" src="IMG/title.svg">
+        <div class="title_desc">
+            <h4>Can NLP-based sentiment analysis provide insights to poetry?</h4>
+            <p>The goal of this project is to explore ways poetic sentiment can be interpreted computationally via NLP analysis, and if visualization can be used as a tool to help the readers deconstruct the poet’s choice of words behind their creation, or provide a new perspective for the poet on what they have written.<br><br><em>Continue scrolling for the poetry data exploration and visualization; if you are already familiar with the project, proceed to <a href="analyze.html" class="pill">Poetry Analyzer</a> and give it a try!</em></p>
+        </div>
+    </section>
+
+    <hr class="section">
+
+    <section id="history">
+        <h1 class="alignright">A Brief Introduction of Poetry</h1>
+        <p class="alignright">Poetry is one of the most subjective and expressive form of literature. <br>It as a verbal art form predates written text, often greatly involved with emotions, history, culture, religion and personal expression.</p>
+        <div class="timeline">
+            <div>
+                <div class="row rowtop">
+                    <div class="col-2">
+                        <img class="timelineillustration" src="./IMG/timeline/poem.png">
+                        <h4>~2000 B.C.</h4>
+                        <p>The first instance of Poetry appeared as early as the 20th century B.C.</p>
+                        <div class="timepin"><i class="fa fa-caret-down"></i></div>
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <img class="timelineillustration" src="./IMG/timeline/petrarcaa.png">
+                        <h4>~1300</h4>
+                        <p>Petrarca, for whom the Petrarchan sonnet is named, is perhaps one of the most famous early writers of the sonnet.</p>
+                        <div class="timepin"><i class="fa fa-caret-down"></i></div>
+                    </div>
+                    <div class="col-2">
+                        <img class="timelineillustration" src="./IMG/timeline/queen.png">
+                        <h4>~1600</h4>
+                        <p>Following the reign of Queen Elizabeth I, the English Restoration period (from 1660-1689) saw the rise of literary elites, such as John Dryden.</p>
+                        <div class="timepin"><i class="fa fa-caret-down"></i></div>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <img class="timelineillustration" src="./IMG/timeline/frame.png">
+                        <h4>~1900</h4>
+                        <p>Toward the turn of the 20th century as Whitman wrote <em>“Of Modern Man I Sing”</em>, ushered a new period—and a variety of forms—for poetry.</p>
+                        <div class="timepin"><i class="fa fa-caret-down"></i></div>
+                    </div>
+                </div>
+                <div class="timelineline"></div>
+                <div class="row rowbottom">
+                    <div class="col-1"></div>
+                    <div class="col-2">
+                        <div class="timepin"><i class="fa fa-caret-up"></i></div>
+                        <p>The first instance of Poetry appeared as early as the 20th century B.C.</p>
+                        <h4>~2000 B.C.</h4>
+                        <img class="timelineillustration" src="./IMG/timeline/ancientBook.png">
+                    </div>
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <div class="timepin"><i class="fa fa-caret-up"></i></div>
+                        <p>It became best known as an English poetic form through the work of William Shakespeare.</p>
+                        <h4>~1500</h4>
+                        <img class="timelineillustration" src="./IMG/timeline/shakespeare.png">
+                    </div>
+                    <div class="col-2">
+                        <div class="timepin"><i class="fa fa-caret-up"></i></div>
+                        <p>In the 19th-Century Poetry, some important poets to consider include key Romantic poets such as William Blake, Samuel Taylor Coleridge, William Wordsworth, and John Keats.</p>
+                        <h4>~1800</h4>
+                        <img class="timelineillustration" src="./IMG/timeline/love-letter.png">
+                    </div>
+                    <div class="col-2">
+                        <div class="timepin"><i class="fa fa-caret-up"></i></div>
+                        <p>The 20th century also witnessed a number of poets winning the Nobel Prize, from the United States to India.</p>
+                        <h4>~1900</h4>
+                        <img class="timelineillustration" src="./IMG/timeline/nobel-prize.png">
+                    </div>
+                </div>
+            </div>
+            <div class="future">
+                <img class="timelineillustration" src="./IMG/timeline/chip.png">
+                <h4>~Future</h4>
+                <p>The development of poetry is ongoing.</p>
+            </div>
+        </div>
+        <hr class="div">
+        <div class="flexHorizontal">
+            <p>In one form or another, poetry has been around for thousands years, but it always lived in a fluid state of development. Often the best poems are written from the heart, raw, emotional and to the point. Poem favors brevity, yet the best poems also capture a great amount of detail, making them incredibly powerful to their readers. However, this makes poetry often difficult to fully understand due to its unique literature structure.<br><br><em>Can we quantify expression in poetry through methods like extracting high frequency word, such as love, fears, suffering, burning, and death in Shakespeare's poetry, or do we need more insights such as NLP / Sentiment Analysis to be able to understand the intention behind the poets' careful creation?</em>
+            </p>
+            <div class="flexVertical wordcloud">
+                <img src="./IMG/wordcloud.png">
+                <p class="caption">A static word-cloud visualization generated from a collection of poetry from works of well known Romantic Poets illustrating common themes shared between 18th to 19th-centry poetry.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section">
+
+    <section id="nlp" style="padding-top: 10vh;">
+        <h1>Where does Sentiment Analysis Fit in?<br><br></h1>
+        <div class="flexHorizontal">
+            <img class="illustration1" src="IMG/illustration/1.png">
+            <p>Sentiment analysis in Natural Language Processing (also known as opinion mining or emotion AI) is the use of NLP text analysi and computational linguistics to systematically extract, quantify, and identify affective states and subjective information in a text sample. The standard categories of classifications include valence, arousal, dominance, concreteness, etc.</p>
+        </div>
+
+        <hr class="div">
+
+        <h1 class="alignright">
+            The NRC Valence, Arousal, and Dominance (NRC-VAD) Lexicon</h1>
+        <p class="alignright">For this project, The NRC-VAD was used to analyze the sentiment of poetry. The NRC Valence, Arousal, and Dominance (VAD) Lexicon includes a list of more than 20,000 English words and their valence, arousal, and dominance scores. For a given word and a dimension (V/A/D), the scores range from 0 (lowest V/A/D) to 1 (highest V/A/D). The lexicon with its fine-grained real-valued scores was created by manual annotation using Best--Worst Scaling. <em><br><br>valence is the positive--negative or pleasure--displeasure dimension;<br>arousal is the excited--calm or active--passive dimension;<br>and dominance is the powerful--weak or 'have full control'--'have no control' dimension.</em></p>
+        <div class="flexVertical">
+            <div id="lexicon"></div>
+            <div class="flexHorizontal lexiconoptions">
+                <div class="lexiconbuttons">
+                    <button id="lexiconvalence" class="lexiconbutton active">Valence</button>
+                    <button id="lexiconarousal" class="lexiconbutton">Arousal</button>
+                    <button id="lexicondominance" class="lexiconbutton">Dominance</button>
+                </div>
+                <button id="lexiconrandomize" class="resetbutton" onclick="lexiconbubble();"><i class="fa fa-random"></i></button>
+            </div>
+            <p class="caption">This is a 1000-word preview collection of the lexicon, ordered across the 0 - 1 spectrum. <b>hover above the word nodes</b> for more information and <b>click on the different metrix</b> to re-order. You can also <b>click on the randomize button</b> to look at a different set of words.</p>
+        </div>
+    </section>
+
+    <hr class="section">
+
+
+
+    <section id="development">
+        <div class="flexHorizontal">
+            <div class="violin">
+                <div id="violin"></div>
+                <p class="caption" style="margin-left: -100px;">You may <b>click on each sentiment attribute</b> to explore the individual poems and their mapping; <b>hover above the poem nodes</b> for more information and <b>click between the expanded sentiments</b> to exit.</p>
+            </div>
+            <p><em><b>Has Poetry changed over time?</b></em><br><br>
+                It is quite interesting to see that modern poetry seems to have more distinctive sentiment characteristics, yet the general recognized sentiment are always around the mid-range. From this, we can make some assumptions, like modern poetry may be more personalized than earlier (Renaissance) poetry with specific rhythmic guidelines, given things like increasing poetry written in the free verse format.
+            </p>
+        </div>
+    </section>
+
+    <hr class="section">
+
+    <section id="context">
+        <h1>Is there any correlation between theme, context and sentiment?</h1>
+        <div class="flexHorizontal">
+            <p>We express different emotions when speaking and writing about specific subjects based on a combination of common definition and subjective experience. Does this apply to poetry as well? Below is a collection of 36 themes analyzed the Poetry foundation website database displayed in radar graph format. Each radar graph presents the min and max VAD scores of the poem classifier in each category.</p>
+        </div>
+
+        <div class="flexHorizontal">
+            <div id="radar_type"></div>
+            <div id="radar_zoom"></div>
+
+        </div>
+        <p class="caption" style="margin-left: 30vw;">You may <b>click on each radar graph</b> to explore the specific category of poetry and their VAD score; <b>hover above the poem rings</b> for more information.</p>
+    </section>
+
+
+
+    <hr class="section">
+
+    <section id="sentiment">
+        <h1>Poetic Sentiment</h1>
+        <p>As we have already looked at the average measured sentiment in poetry across different themes and time, let's look at exactly where these sentiments are found within poetry. This section explores the way different poets utilize words within the poetry, and how their choices affect the overall perceived sentiment in their work.</p>
+        <hr class="div">
+        <div class="flexHorizontal" style="align-items: flex-start !important;">
+            <div>
+                <div>
+                    Display Poem Cluster
+                    <select id="categoryselector">
+                        <option disabled selected>Select A Category</option>
+                    </select>
+                    <span id="attributeby">by</span>
+                    <select id="attributeselector">
+                        <option value="Valence" selected>Valence</option>
+                        <option value="Arousal">Arousal</option>
+                        <option value="Dominance">Dominance</option>
+                    </select>
+                </div>
+                <div id="clustervis"></div>
+                <div class="flexVertical" id="clustercaption">
+                    <em style="padding-top: 10px;">Select a category to filter poems by, and choose a poem to display its detailed analysis</em>
+                </div>
+            </div>
+            <div>
+                <div id="togglebuttons">
+                    <button id="toggleUserOutput0" class="toggleUserOutput active" onclick="toggleUserOutput(0)">Overall</button>
+                    <button id="toggleUserOutput1" class="toggleUserOutput" onclick="toggleUserOutput(1)">Valence</button>
+                    <button id="toggleUserOutput2" class="toggleUserOutput" onclick="toggleUserOutput(2)">Dominance</button>
+                    <button id="toggleUserOutput3" class="toggleUserOutput" onclick="toggleUserOutput(3)">Arousal</button>
+                </div>
+                <div class="poemanalysis">
+                    <div id="useroverall"></div>
+                    <div id="uservalence"></div>
+                    <div id="userdominance"></div>
+                    <div id="userarousal"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section">
+
+    <section id="analyzer">
+        <h1 class="alignright">Where does sentiment analysis for poetry leads to?</h1>
+        <p class="alignright">
+            The classification of emotional states from poetry has not been receiving enough attention in the NLP world given its flexible connection to traditional grammatical structure. However, with the emotional analysis, we may be able to understand more regarding author's intent for expression through this method.<br><br><em>Given the poems subject matter, how do poems make you feel?<br>Could it change the way you used to interpret poetry?<br>Does this additional aspect of understanding give you a new perspective to poetry, or perhaps motivation to write and analyze your own?</em><br><br>I have created a draft Sentiment Analyzer that allows you to input text-drafts and build visualizations based on your creation. Cllick below to proceed to the AI Poetry Sentiment Analyzer.<br><br></p>
+        <h4 class="alignright"><a href="analyze.html" class="largepill">Poetry Analyzer</a></h4>
+    </section>
+
+    <!--footer-->
+    <footer class="flexHorizontal">
+        <div>
+            <h4>6.859 Interactive Data Visualization</h4>
+            <p>Massachusetts Institute of Technology | 2021 <br>Project by <em>Charles N.H. Wu</em><br>All rights reserved © </p>
+        </div>
+        <div>
+            <p style="width: 300px; text-align: right;">Datasets: <a class="linkreference" href="https://saifmohammad.com/WebPages/nrc-vad.html">NRC-VAD Lexicon</a>, etc.<br><br>
+                Acknowledgement: Special thanks to feedback from Arvind Satyanarayan and the TAs of this course
+            </p>
+        </div>
+    </footer>
+    <!--bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--screenshotlibrary-->
+    <script src="js/html2canvas.min.js"></script>
+    <!--personal js-->
+    <script src="./js/violinBaby.js"></script>
+    <script src="./js/Radar.js"></script>
+    <script src="./js/RadarBig.js"></script>
+    <script src="./js/lexicon.js"></script>
+    <script src="./js/ana.js"></script>
+    <script src="./js/cluster.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/scroll.js"></script>
+</body>
+
+</html>
